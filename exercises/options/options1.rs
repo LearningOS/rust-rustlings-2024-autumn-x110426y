@@ -14,8 +14,9 @@ fn maybe_icecream(time_of_day: u16) -> Option<u16> {
     // TODO: Complete the function body - remember to return an Option!
     
         match time_of_day {
-            0..=9 | 22..=23 => Some(5),
-            _ => None,
+            0..=12 => Some(5),   
+            13..=23 => Some(0),  
+            _ => None,        
         
     }
 }
