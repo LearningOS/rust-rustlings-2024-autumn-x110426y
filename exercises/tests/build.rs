@@ -3,9 +3,18 @@
 //! You should modify this file to make both exercises pass.
 
 fn main() {
-    let your_command = "cargo:rustc-cfg=feature=\"pass\"";
-    println!("{}", your_command);
+    let timestamp = std::time::SystemTime::now()
+        .duration_since(std::time::UNIX_EPOCH)
+        .unwrap()
+        .as_secs();
+
+    let env_var_command = format!("cargo:rustc-env=TEST_FOO={}", timestamp);
+    println!("{}", env_var_command);
+
+    let feature_command = "cargo:rustc-cfg=feature=\"pass\"";
+    println!("{}", feature_command);
 }
+
 
 
 
